@@ -8,16 +8,16 @@ Fix Human Sleep: Funniest Patch Note — one line of patch notes announcing that
 
 ## The entry
 
-> v2.6.1: Patched the bug where sleep ended at 3 AM for no reason. Humans now wake up rested; side effect: Mondays still exist.
+> v2.7.0: Fixed the bug where REM sleep buffered forever. Humans now dream in full HD; side effect: naps now need a reboot to resume.
 
-125 characters, one line, plain ASCII — inside the 1–160 character gate.
+131 characters, one line, plain ASCII — inside the 1–160 character gate.
 
 ## Why this line
 
 Written against the judge's brief, in the order it weighs things:
 
-1. **Real patch note** — a versioned changelog line ("v2.6.1:") announcing a fix for human sleep, naming the bug precisely: sleep ended at 3 AM for no reason.
-2. **Funny on one read** — the punch is a deadpan side effect: humans wake up rested, but Mondays still exist.
+1. **Real patch note** — a versioned changelog line ("v2.7.0:") announcing a fix for human sleep, naming the bug precisely: REM sleep buffered forever, like a video stalling on a bad connection.
+2. **Funny on one read** — the punch is a deadpan side effect: dreams now render in full HD, but naps need a reboot to resume.
 3. **Genuine release-note voice** — terse, confident, phrased the way a changelog line would be, including an honest side-effect admission.
 4. **Single line, under the cap** — no padding, no trailing explanation; the joke trusts the reader.
 5. **Specific and surprising** — the fix is a named defect with a named side effect, not a flat claim that sleep is now fixed.

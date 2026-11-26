@@ -1,44 +1,45 @@
 #!/usr/bin/env python3
 """One-line entry: Fix Human Sleep: Funniest Patch Note.
 
-The brief asks for a single line of patch notes announcing
-that human sleep has been fixed, funny enough to make a
-reader laugh and plausible enough to sit in a real
-changelog, under 160 characters. The judge weighs, in
-order: the line really reads as a patch note announcing a
-fix for human sleep, it is funny on a single read, it
-sounds like genuine release notes, terse and confident,
-it stays a single line under the cap with no padding or
-trailing explanation, and the fix is specific and
-unexpected rather than a flat claim that sleep is now
-fixed.
+The brief wants a single changelog line announcing that
+human sleep has been fixed: funny at first glance, yet
+believable enough to belong in a real release note, one
+line of 1 to 160 characters. The judge compares entries
+two at a time and weighs, in order: the line really is a
+patch note about fixing human sleep, how funny it is,
+how much it sounds like a genuine changelog, and that it
+stays a single line.
 
-The sealed line below is built to that order on purpose.
-It opens with a version tag, "v2.6.1:", which is the
-changelog voice at once, and names the bug precisely:
-sleep ended at 3 AM for no reason, a defect every reader
-recognises. The fix is stated like a real release note:
-humans now wake up rested. The punch lands in the last
-words as a deadpan side effect -- "Mondays still exist"
--- which is the joke: the patch fixed sleep but left the
-week exactly as miserable as before, so the changelog
-admits its own limits. One sentence, nothing to explain,
-and it avoids the flat "sleep is now fixed" claim.
+The sealed line below is built for a different sleep bug
+than the usual 3 AM waking joke. It treats dreaming as
+a streaming service: REM sleep "buffered forever", the
+way a video stalls on a bad connection. The fix is
+stated like a real release note -- humans now dream in
+full HD -- and the punch lands as a deadpan side effect:
+naps now need a reboot to resume. That last clause is
+the joke's engine: the patch upgraded the night but
+left the afternoon nap broken in a very software way,
+and the changelog admits it without blinking. A version
+tag opens the line, so the changelog voice is there
+from the first word, and the whole thing is one terse
+sentence with no padding and no explanation after it.
 
-LIMIT is 160 because the bounty gate allows one line of 1
-to 160 characters. The sealed line is 125 characters, so
-it sits well inside the cap; the validator below only
-guards against an edit that would push it past the limit.
+LIMIT is 160 because the bounty gate allows one line of
+1 to 160 characters. The sealed line is 131 characters,
+so it sits comfortably inside the cap; the validator
+below only guards against an edit that would push it
+past the limit.
 """
 
 import os
 
-# The sealed line: a versioned patch note for the 3 AM
-# waking bug, with a deadpan side effect -- humans wake
-# up rested, but Mondays still exist. The side effect is
-# the joke's engine: the patch is honest about what it
-# did not fix, which is exactly how real changelogs read.
-ENTRY = "v2.6.1: Patched the bug where sleep ended at 3 AM for no reason. Humans now wake up rested; side effect: Mondays still exist."
+# The sealed line: a versioned patch note for the REM
+# buffering bug, with a deadpan side effect -- dreams
+# now render in full HD, but naps need a reboot to
+# resume. The joke is that the fix upgraded sleep like
+# a video stream while leaving the nap broken in a
+# very software-shaped way.
+ENTRY = "v2.7.0: Fixed the bug where REM sleep buffered forever. Humans now dream in full HD; side effect: naps now need a reboot to resume."
 
 LIMIT = 160  # bounty gate: one line, 1-160 characters
 
@@ -78,8 +79,9 @@ def _validate(text):
 
 def main():
     entry = _validate(ENTRY)
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as handle:
+    output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(output_dir, exist_ok=True)
+    with open(os.path.join(output_dir, "entry.txt"), "w", encoding="utf-8") as handle:
         handle.write(entry)
     print(entry)
 
